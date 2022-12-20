@@ -1,3 +1,5 @@
+import '../styles/TagInfo.css'
+
 function TagInfo(props) {
     return (
         <div id="taginfo">

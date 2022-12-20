@@ -3,13 +3,11 @@ import PlayerCard from "./PlayerCard";
 function PlayerBoard(props){
 
     const players = props.players.map((player) => 
-    <li key={player.id}>
-        <PlayerCard player={player}></PlayerCard>
-    </li>
+        <PlayerCard key={player.id} player={player}></PlayerCard>
     )
 
     return (
-        <ul id="playerboard">{players}</ul>
+        <div id="playerboard">{players}</div>
     );
 }
 
