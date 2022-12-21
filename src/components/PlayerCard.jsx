@@ -3,6 +3,8 @@ import '../styles/PlayerCard.css'
 
 function PlayerCard(props){
 
+    let isCurrentPlayer = props.currentUser.id === props.player.id
+
     function tagButtonOnClick() {
         console.log("TAGGED " + props.player.name)
         //Add api call to tag the new player
@@ -17,7 +19,10 @@ function PlayerCard(props){
     return(
         <div id="playercard">
             <PlayerProfile player={props.player}></PlayerProfile>
-            <button id="tagbutton" className="tagbutton" onClick={tagButtonOnClick}>Tag this player</button>
+            <button id="tagbutton" 
+                    className="tagbutton" 
+                    onClick={tagButtonOnClick}
+                    disabled = {isCurrentPlayer}>Tag this player</button>
         </div>
     );
 }

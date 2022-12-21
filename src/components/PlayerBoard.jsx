@@ -4,7 +4,10 @@ import '../styles/PlayerBoard.css'
 function PlayerBoard(props){
 
     const players = props.players.map((player) => 
-        <PlayerCard key={player.id} player={player} setTagged={props.setTagged}></PlayerCard>
+        <PlayerCard key={player.id} 
+                    player={player} 
+                    setTagged={props.setTagged} 
+                    currentUser={props.currentUser}></PlayerCard>
     )
 
     return (
