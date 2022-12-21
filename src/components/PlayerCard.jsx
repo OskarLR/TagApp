@@ -1,4 +1,5 @@
 import PlayerProfile from "./PlayerProfile";
+import '../styles/PlayerCard.css'
 
 function PlayerCard(props){
     return(

@@ -1,4 +1,5 @@
 import PlayerCard from "./PlayerCard";
+import '../styles/PlayerBoard.css'
 
 function PlayerBoard(props){
 

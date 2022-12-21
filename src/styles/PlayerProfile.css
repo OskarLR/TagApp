@@ -1,0 +1,14 @@
+#playerprofile {
+    min-width: 15vw;
+    min-height: 20vh;
+    color: black;
+    font-weight: bold;
+}
+
+#profilepicture {
+    margin-top: 2em;
+    max-width: 8em;
+    max-height: 8em;
+    border-radius: 100%;
+    border: 0.1em solid black;
+}

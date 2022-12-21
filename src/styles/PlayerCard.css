@@ -1,0 +1,29 @@
+#playercard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    background-color: cadetblue;
+    border-radius: 2em;
+    border: 0.1em solid black;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: transform .2s;
+    min-width: 18em;
+}
+
+#playercard:hover {
+    background-color: rgb(118, 184, 186);
+    transform: scale(1.2)
+}
+
+#tagbutton {
+    background-color: aquamarine;
+    margin-bottom: 2em;
+    border: 0.1em solid black;
+}
+
+#tagbutton:hover {
+    background-color: rgb(23, 248, 173);
+}
+

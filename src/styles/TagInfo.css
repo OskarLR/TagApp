@@ -1,4 +1,11 @@
 #taginfo {
     padding: 1em;
-    width: 100%;
+}
+
+#tagged {
+    font-size: 2em;
+}
+
+#description {
+    font-size: 1em;
 }

@@ -1,11 +1,33 @@
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent; 
+}
+
 #root {
-  margin: 0 auto;
+  margin: 0 0;
   width: 100%;
   text-align: center;
-  color: white;
+  color: black;
 }
 
 body {
-  margin: 0 auto;
-  background-color: #0A090C;
+  margin: 0 0;
+  background-color: beige;
+  width: 100%;
+}
+
+#content {
+  min-height: 75vh;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
 }
