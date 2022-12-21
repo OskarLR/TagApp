@@ -15,6 +15,7 @@ function App() {
 
   let [players, setPlayers] = React.useState(staticplayers)
   let [tagged, setTagged] = React.useState(true)
+  let currentUserID = 1;
 
   return (
     <div className="App">

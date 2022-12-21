@@ -4,26 +4,35 @@
     justify-content: center;
     align-items: center;
     margin: 2em;
-    background-color: cadetblue;
+    background-color: #98C9A3;
+    border: 1px solid grey;
     border-radius: 2em;
-    border: 0.1em solid black;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
     transition: transform .2s;
     min-width: 18em;
 }
 
 #playercard:hover {
     background-color: rgb(118, 184, 186);
-    transform: scale(1.2)
+    transform: scale(1.2) rotate(-10deg);
+    border: 0.1em solid white;
 }
 
 #tagbutton {
-    background-color: aquamarine;
+    background-color: #77BFA3;
     margin-bottom: 2em;
     border: 0.1em solid black;
+    min-width: 12vw;
+    min-height: 10vh;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5%;
+    border: 1px solid grey;
 }
 
 #tagbutton:hover {
-    background-color: rgb(23, 248, 173);
+    background-color: #98C9A3;
+    border: 0.1em solid white;
+    color: white;
 }
 
