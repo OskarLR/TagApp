@@ -11,3 +11,7 @@
     max-height: 8em;
     border-radius: 100%;
 }
+
+p {
+    font-size: large;
+}
