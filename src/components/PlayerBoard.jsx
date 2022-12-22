@@ -5,8 +5,7 @@ function PlayerBoard(props){
 
     const players = props.players.map((player) => 
         <PlayerCard key={player.id} 
-                    player={player} 
-                    setTagged={props.setTagged} 
+                    player={player}
                     currentUser={props.currentUser}/>
     )
 

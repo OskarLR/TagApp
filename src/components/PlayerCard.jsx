@@ -13,7 +13,6 @@ function PlayerCard(props){
     function tagButtonOnClick() {
         console.log("TAGGED " + player.name)
         //Add api call to tag the new player
-        props.setTagged(false)
         window.location.reload()
     }
 
@@ -23,8 +22,7 @@ function PlayerCard(props){
 
     return(
         <div className="playercard" style={player.tagged ? taggedStyle : {}} ref={playercard}>
-            <PlayerProfile player={player} 
-                           isPreviousTagger={isPreviousTagger}
+            <PlayerProfile player={player}
                            isCurrentPlayer={isCurrentPlayer}/>
             <button className="tagbutton" 
                     onClick={tagButtonOnClick}
