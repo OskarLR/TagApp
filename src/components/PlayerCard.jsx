@@ -14,10 +14,7 @@ function PlayerCard(props){
         console.log("TAGGED " + player.name)
         //Add api call to tag the new player
         props.setTagged(false)
-        let tagbuttons = document.getElementsByClassName("tagbutton");
-        Array.prototype.forEach.call(tagbuttons, (button) => {
-            button.disabled = true;
-        })
+        window.location.reload()
     }
 
     const taggedStyle = {
@@ -26,10 +23,12 @@ function PlayerCard(props){
 
     return(
         <div className="playercard" style={player.tagged ? taggedStyle : {}} ref={playercard}>
-            <PlayerProfile player={player}/>
+            <PlayerProfile player={player} 
+                           isPreviousTagger={isPreviousTagger}
+                           isCurrentPlayer={isCurrentPlayer}/>
             <button className="tagbutton" 
                     onClick={tagButtonOnClick}
-                    disabled = {isCurrentPlayer || isPreviousTagger}>Tag this player</button>
+                    hidden = {isPreviousTagger || isCurrentPlayer || (!isCurrentPlayer&&!props.currentUser.tagged)}>Tag this player</button>
         </div>
     );
 }
