@@ -1,6 +1,10 @@
+import React from 'react'
+import { useState } from 'react'
 import '../styles/PlayerProfile.css'
 
 function PlayerProfile(props) {
+
+    let [seconds, setSeconds] = React.useState(props.player.tagtime)
 
     let player = props.player
     let isCurrentPlayer = props.currentUser.id === player.id
@@ -34,11 +38,17 @@ function PlayerProfile(props) {
         return playerNameTitle
     }
 
+    setTimeout(() =>{
+        if(player.tagged){
+            setSeconds(seconds + 1)
+        }
+    }, 1000);
+
     return (
         <div id="playerprofile">
             <img id="profilepicture" src={props.player.profilepicture} alt="Player Icon"/>
             <p id="playername">{getPlayernameTitle(props.player)}</p>
-            <p id="tagtime">{secondsToTimeFormat(props.player.tagtime)}</p>
+            <p id="tagtime">{secondsToTimeFormat(seconds)}</p>
         </div>
     );
 }
