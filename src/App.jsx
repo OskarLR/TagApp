@@ -1,20 +1,30 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import TagInfo from './components/TagInfo'
 import PlayerBoard from './components/PlayerBoard'
 import profileicon from './assets/profile_pic_icon.png'
 
 function App() {
-  let staticplayers = [
-  {id:1,name:"Carl",email:"carl@gmail.com",tagtime:5354109,tagged:true, profilepicture: profileicon, isPreviousTagger: false},
-  {id:2,name:"Hugo",email:"hugo@gmail.com",tagtime:54603,tagged:false, profilepicture: profileicon, isPreviousTagger: true},
-  {id:3,name:"Grant",email:"grant@gmail.com",tagtime:179,tagged:false, profilepicture: profileicon, isPreviousTagger: false},
-  {id:4,name:"Json",email:"jsong@gmail.com",tagtime:15,tagged:false, profilepicture: profileicon, isPreviousTagger: false},
-  {id:5,name:"Patrick",email:"patrick@gmail.com",tagtime:2422599,tagged:false, profilepicture: profileicon, isPreviousTagger: false}]
 
-  let currentUser = staticplayers[0] //Add api call to fetch users here
-  let [players, setPlayers] = React.useState(staticplayers)
+  let [players, setPlayers] = React.useState([])
+  useEffect(() => {
+    const url = 'http//localhost:3000/users';
+
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch(url)
+        const json = await response.json();
+        console.log(json.users);
+        setPlayers(json.users)
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchUsers();
+  }, []);
+
+  let currentUser = {id:1,name:"Carl",email:"carl@gmail.com",tagtime:5354109,tagged:true, profilepicture: "profileicon", isPreviousTagger: false} //Add api call to fetch user here
 
   return (
     <div className="App">
