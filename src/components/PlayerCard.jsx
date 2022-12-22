@@ -23,7 +23,7 @@ function PlayerCard(props){
     return(
         <div className="playercard" style={player.tagged ? taggedStyle : {}} ref={playercard}>
             <PlayerProfile player={player}
-                           isCurrentPlayer={isCurrentPlayer}/>
+                           currentUser={props.currentUser}/>
             <button className="tagbutton" 
                     onClick={tagButtonOnClick}
                     hidden = {isPreviousTagger || isCurrentPlayer || (!isCurrentPlayer&&!props.currentUser.tagged)}>Tag this player</button>

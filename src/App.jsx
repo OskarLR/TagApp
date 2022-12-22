@@ -13,7 +13,7 @@ function App() {
   {id:4,name:"Json",email:"jsong@gmail.com",tagtime:15,tagged:false, profilepicture:{profileicon}, isPreviousTagger: false},
   {id:5,name:"Patrick",email:"patrick@gmail.com",tagtime:2422599,tagged:false, profilepicture:{profileicon}, isPreviousTagger: false}]
 
-  let currentUser = staticplayers[0] //Add api call to fetch users here
+  let currentUser = staticplayers[2] //Add api call to fetch users here
   let [players, setPlayers] = React.useState(staticplayers)
 
   return (

@@ -4,6 +4,7 @@ import profileicon from '../assets/profile_pic_icon.png'
 function PlayerProfile(props) {
 
     let player = props.player
+    let isCurrentPlayer = props.currentUser.id === player.id
 
     function secondsToTimeFormat(tagTimeInSeconds){
         const secondsInADay = 86400
@@ -27,11 +28,17 @@ function PlayerProfile(props) {
         return daysString + hoursString + minutesString + seconds + " seconds"
     }
 
+    function getPlayernameTitle(player) {
+        let playerNameTitle = player.name
+        if(player.isPreviousTagger && !isCurrentPlayer && props.currentUser.tagged) playerNameTitle += "  tagged you!";
+        if(isCurrentPlayer) playerNameTitle = "Me"
+        return playerNameTitle
+    }
+
     return (
         <div id="playerprofile">
             <img id="profilepicture" src={profileicon} alt="Player Icon"/>
-            <p id="playername">{player.isPreviousTagger && !props.isCurrentPlayer ?
-                                player.name  + "  tagged you!": player.name}</p>
+            <p id="playername">{getPlayernameTitle(props.player)}</p>
             <p id="tagtime">{secondsToTimeFormat(props.player.tagtime)}</p>
         </div>
     );
