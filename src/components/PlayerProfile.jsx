@@ -1,5 +1,4 @@
 import '../styles/PlayerProfile.css'
-import profileicon from '../assets/profile_pic_icon.png'
 
 function PlayerProfile(props) {
 
@@ -37,7 +36,7 @@ function PlayerProfile(props) {
 
     return (
         <div id="playerprofile">
-            <img id="profilepicture" src={profileicon} alt="Player Icon"/>
+            <img id="profilepicture" src={props.player.profilepicture} alt="Player Icon"/>
             <p id="playername">{getPlayernameTitle(props.player)}</p>
             <p id="tagtime">{secondsToTimeFormat(props.player.tagtime)}</p>
         </div>
