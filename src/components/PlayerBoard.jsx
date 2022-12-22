@@ -7,7 +7,7 @@ function PlayerBoard(props){
         <PlayerCard key={player.id} 
                     player={player} 
                     setTagged={props.setTagged} 
-                    currentUser={props.currentUser}></PlayerCard>
+                    currentUser={props.currentUser}/>
     )
 
     return (
