@@ -3,20 +3,18 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import TagInfo from './components/TagInfo'
 import PlayerBoard from './components/PlayerBoard'
-import profileicon from './assets/profile_pic_icon.png'
 
 function App() {
 
   let [players, setPlayers] = React.useState([])
   useEffect(() => {
-    const url = 'http//localhost:3000/users';
-
+    const url = 'http://localhost:3001/users';
     const fetchUsers = async () => {
       try {
-        const response = await fetch(url)
-        const json = await response.json();
-        console.log(json.users);
-        setPlayers(json.users)
+        let response = await fetch(url)
+        let json = await response.json()
+        setPlayers(json)
+        console.log(json)
       } catch (error) {
         console.log("error", error);
       }
@@ -24,7 +22,7 @@ function App() {
     fetchUsers();
   }, []);
 
-  let currentUser = {id:1,name:"Carl",email:"carl@gmail.com",tagtime:5354109,tagged:true, profilepicture: "profileicon", isPreviousTagger: false} //Add api call to fetch user here
+  let currentUser = {id:1,name:"Carl",email:"carl@gmail.com",tagtime:5354109,tagged:true, isprev: false} //Add api call to fetch user here
 
   return (
     <div className="App">

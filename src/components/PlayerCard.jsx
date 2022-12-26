@@ -7,13 +7,23 @@ function PlayerCard(props){
 
     let player = props.player
     let isCurrentPlayer = props.currentUser.id === player.id
-    let isPreviousTagger = player.isPreviousTagger
+    let isPreviousTagger = player.isprev
 
     let playercard = useRef(null)
     function tagButtonOnClick() {
-        console.log("TAGGED " + player.name)
-        //Add api call to tag the new player
-        window.location.reload()
+        const url = 'http://localhost:3001/tag';
+        const tagUser = async (previousTaggerID,currentlyTaggedID,newTaggedID) => {
+            try {
+                fetch(url + "?" + new URLSearchParams({
+                    previousTaggerID: previousTaggerID,
+                    currentlyTaggedID: currentlyTaggedID,
+                    newTaggedID: newTaggedID,
+                }))
+            } catch (error) {
+            console.log("error", error);
+            }
+        };
+        tagUser('2','1','3');
     }
 
     const taggedStyle = {
