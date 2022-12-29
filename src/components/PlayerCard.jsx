@@ -12,18 +12,17 @@ function PlayerCard(props){
     let playercard = useRef(null)
     function tagButtonOnClick() {
         const url = 'http://localhost:3001/tag';
-        const tagUser = async (previousTaggerID,currentlyTaggedID,newTaggedID) => {
+        const tagUser = async (newTaggedID) => {
             try {
                 fetch(url + "?" + new URLSearchParams({
-                    previousTaggerID: previousTaggerID,
-                    currentlyTaggedID: currentlyTaggedID,
                     newTaggedID: newTaggedID,
                 }))
             } catch (error) {
             console.log("error", error);
             }
         };
-        tagUser('2','1','3');
+        tagUser(player.id);
+        window.location.reload()
     }
 
     const taggedStyle = {
