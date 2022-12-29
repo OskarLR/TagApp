@@ -6,6 +6,16 @@ import PlayerBoard from './components/PlayerBoard'
 
 function App() {
 
+  const updateTagger = async () => {
+    let url = "http://localhost:3001/updatetagger"
+    try {
+      await fetch(url)
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+  updateTagger()
+
   let [players, setPlayers] = React.useState([])
   useEffect(() => {
     const url = 'http://localhost:3001/users';
@@ -22,7 +32,7 @@ function App() {
     fetchUsers();
   }, []); 
 
-  let email = 'oremvang@gmail.com'
+  let email = 'carl@gmail.com'
   let [user, setUser] = React.useState({})
   useEffect(() => {
     const url = `http://localhost:3001/user?email=${email}`;
