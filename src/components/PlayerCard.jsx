@@ -14,7 +14,7 @@ function PlayerCard(props){
         const url = 'http://localhost:3001/tag';
         const tagUser = async (newTaggedID) => {
             try {
-                fetch(url + "?" + new URLSearchParams({
+                await fetch(url + "?" + new URLSearchParams({
                     newTaggedID: newTaggedID,
                 }))
             } catch (error) {

@@ -3,51 +3,38 @@ import { useState, useEffect } from 'react'
 import TagInfo from '../components/TagInfo'
 import PlayerBoard from '../components/PlayerBoard'
 
-function HomePage() {
+function HomePage(props) {
 
-    useEffect(() => {
-        let url = "http://localhost:3001/updatetagger"
-        const updateTagger = async () => {
-            try {
-              await fetch(url)
-            } catch (error) {
-              console.log("error", error);
-            }
-        }
-        updateTagger()
-    }, []);
-    
-    let [players, setPlayers] = React.useState([])
-    useEffect(() => {
-        const url = 'http://localhost:3001/users';
-        const fetchUsers = async () => {
-            try {
-                let response = await fetch(url)
-                let json = await response.json()
-                setPlayers(json)
-                console.log(json)
-            } catch (error) {
-                console.log("error", error);
-            }
-        };
-        fetchUsers();
-    }, []); 
-    
-    let email = 'grant@gmail.com'
-    let [user, setUser] = React.useState({})
-    useEffect(() => {
-    const url = `http://localhost:3001/user?email=${email}`;
-    const fetchUser = async () => {
+    let [players, setPlayers] = useState([])
+
+    const updateTagger = async () => {
+        let url1 = "http://localhost:3001/updatetagger"
         try {
-        let response = await fetch(url)
-        let json = await response.json()
-        setUser(json)
-        console.log(json)
+            let response = await fetch(url1)
+            let json = await response.json()
+            console.log(json)
         } catch (error) {
-        console.log(error);
+            console.log("error", error);
+        }
+    }
+    const fetchUsers = async () => {
+        const url2 = 'http://localhost:3001/users';
+        try {
+            let response = await fetch(url2)
+            let json = await response.json()
+            setPlayers(json)
+            console.log(json)
+        } catch (error) {
+            console.log("error", error);
         }
     };
-    fetchUser();
+
+    useEffect(() => {
+        async function updateOnReload() {
+            updateTagger()
+            fetchUsers()
+        }
+        updateOnReload()
     }, []);
 
     return (
@@ -56,8 +43,8 @@ function HomePage() {
                 <h1>TAG</h1>
             </header>
             <div id="content">
-                <TagInfo tagged={user.tagged}/>
-                <PlayerBoard players={players} currentUser={user}/>
+                <TagInfo tagged={props.user.tagged}/>
+                <PlayerBoard players={players} currentUser={props.user}/>
             </div>
             <footer>
                 <p>Created by oskarlr</p>
