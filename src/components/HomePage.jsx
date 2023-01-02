@@ -6,16 +6,7 @@ import PlayerBoard from '../components/PlayerBoard'
 function HomePage(props) {
 
     let [players, setPlayers] = useState([])
-
-    const updateTagger = async () => {
-        let url1 = "http://localhost:3001/updatetagger"
-        try {
-            let response = await fetch(url1)
-            console.log(response)
-        } catch (error) {
-            console.log("error", error);
-        }
-    }
+    
     const fetchUsers = async () => {
         const url2 = 'http://localhost:3001/users';
         try {
@@ -30,7 +21,6 @@ function HomePage(props) {
 
     useEffect(() => {
         async function updateOnReload() {
-            updateTagger()
             fetchUsers()
         }
         updateOnReload()
