@@ -11,8 +11,7 @@ function HomePage(props) {
         let url1 = "http://localhost:3001/updatetagger"
         try {
             let response = await fetch(url1)
-            let json = await response.json()
-            console.log(json)
+            console.log(response)
         } catch (error) {
             console.log("error", error);
         }

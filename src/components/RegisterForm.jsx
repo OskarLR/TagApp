@@ -24,11 +24,26 @@ function RegisterForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("user registered")
-        //add user 
-        //handle errors
-        //route to login
-        navigate("/login")
+        try {
+            let response = await fetch('http://localhost:3001/adduser' + '?' +
+            new URLSearchParams({
+                name: username,
+                email: email,
+                password: password
+            }))
+            console.log(response)
+            if(!response){
+                setErr('No Server Response')
+            }else if(response.status === 200){
+                navigate("/login")
+            }else if(response.status === 400){
+                setErr('Email allready exists')
+            }else {
+                setErr('Registration Failed')
+            }
+        } catch(err) {
+            console.log(err)
+        }
     }
 
     return (

@@ -21,25 +21,31 @@ function Login(props) {
         setErr('')
     }, [email, password])
 
-    const fetchUser = async () => {
-        const url3 = `http://localhost:3001/user?email=${email}&password=${password}`;
-        try {
-            let response = await fetch(url3)
-            let json = await response.json()
-            console.log(json)
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let user = await fetchUser()
-        props.setUser(user)
-        console.log(email, password)
-        setEmail('')
-        setPassword('')
-        navigate("/")
+        try {
+            const url = `http://localhost:3001/user?email=${email}&password=${password}`;
+            let response = await fetch(url)
+            if(!response){
+                setErr('No Server Response')
+            }else if(response.status === 200){
+                let json = await response.json()
+                console.log(json)
+                props.setUser(json)
+                console.log(email, password)
+                setEmail('')
+                setPassword('')
+                navigate("/")
+            }else if(response.status === 400){
+                setErr('User email does not exist')
+            }else if(response.status === 401){
+                setErr('Password is incorrect')
+            }else {
+                setErr('Login Failed')
+            }
+        }catch(err){
+            console.log(err)
+        }
     }
 
     return (

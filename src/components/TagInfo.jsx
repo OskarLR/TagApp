@@ -1,7 +1,6 @@
 import '../styles/TagInfo.css'
 
 function TagInfo(props) {
-    console.log(props.tagged)
     return (
         <div id="taginfo">
             <p id="tagged">{props.tagged ? "You are tagged!" : "You are NOT tagged!"}</p>

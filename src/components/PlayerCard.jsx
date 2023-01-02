@@ -18,7 +18,7 @@ function PlayerCard(props){
                     newTaggedID: newTaggedID,
                 }))
             } catch (error) {
-            console.log("error", error);
+                console.log("error", error);
             }
         };
         tagUser(player.id);
