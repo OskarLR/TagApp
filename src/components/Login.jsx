@@ -32,12 +32,11 @@ function Login(props) {
                 let json = await response.json()
                 console.log(json)
                 props.setUser(json)
-                console.log(email, password)
                 setEmail('')
                 setPassword('')
                 navigate("/")
             }else if(response.status === 400){
-                setErr('User email does not exist')
+                setErr('Email does not exist')
             }else if(response.status === 401){
                 setErr('Password is incorrect')
             }else {
