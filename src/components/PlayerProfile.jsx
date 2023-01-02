@@ -16,18 +16,12 @@ function PlayerProfile(props) {
         const secondsInAMinute = 60
         
         if(player.tagged){
-            console.log(player)
-            let oldtagtime = player.tagtime
-            console.log("oldtagtime: " + oldtagtime)
             let timeoftag = player.timeoftag
-            console.log("timeoftag: " + timeoftag)
             let date = timeoftag.substring(0,10) + " " + timeoftag.substring(11,19)
             console.log("date: " + date)
             let jsDate = new Date(date)
-            console.log("jsDate: " + jsDate)
             let taggedPeriod = (Date.now() - jsDate.getTime())/1000 - 60*60*2
-            console.log("taggedPeriod: " + taggedPeriod)
-            tagTimeInSeconds += Math.floor(taggedPeriod)
+            tagTimeInSeconds = player.tagtime + Math.floor(taggedPeriod)
         }
 
         let days = Math.floor(tagTimeInSeconds/secondsInADay)
