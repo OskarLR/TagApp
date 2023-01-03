@@ -11,21 +11,23 @@ function App() {
   let [user, setUser] = useState({})
   
   useEffect(() => {
-    console.log("sessionStorage.user" + sessionStorage.user)
-    setUser(JSON.parse(sessionStorage.user));
+    if(sessionStorage.getItem("user")){
+      setUser(JSON.parse(sessionStorage.user));
+      console.log("sessionStorage.user 1: " + JSON.stringify(sessionStorage.user))
+    }
   }, []);
 
   useEffect(() => {
-    console.log("user: " + user)
-    console.log("sessionStorage.user: " + sessionStorage.user)
     sessionStorage.setItem("user", JSON.stringify(user));
+    console.log("user: " + JSON.stringify(user))
+    console.log("sessionStorage.user 2: " + JSON.stringify(sessionStorage.user))
   }, [user]); 
 
   return (
     <Routes>
-      <Route path="/" element={<HomePage user={user}/>}/>
+      <Route path="/home" element={<HomePage user={user}/>}/>
       <Route path="/register" element={<RegisterForm/>}/>
-      <Route path="/login" element={<Login setUser={setUser}/>}/>
+      <Route path="/" element={<Login setUser={setUser}/>}/>
     </Routes>
   )
 }

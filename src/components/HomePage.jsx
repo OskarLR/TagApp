@@ -20,10 +20,7 @@ function HomePage(props) {
     };
 
     useEffect(() => {
-        async function updateOnReload() {
-            fetchUsers()
-        }
-        updateOnReload()
+        fetchUsers()
     }, []);
 
     return (

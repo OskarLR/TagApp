@@ -34,7 +34,7 @@ function Login(props) {
                 props.setUser(json)
                 setEmail('')
                 setPassword('')
-                navigate("/")
+                navigate("/home")
             }else if(response.status === 400){
                 setErr('Email does not exist')
             }else if(response.status === 401){

@@ -5,7 +5,7 @@ import profileicon from '../assets/profile_pic_icon.png'
 
 function PlayerProfile(props) {
 
-    let [seconds, setSeconds] = React.useState(props.player.tagtime)
+    let [seconds, setSeconds] = useState(props.player.tagtime)
 
     let player = props.player
     let isCurrentPlayer = props.currentUser.id === player.id
@@ -18,7 +18,6 @@ function PlayerProfile(props) {
         if(player.tagged){
             let timeoftag = player.timeoftag
             let date = timeoftag.substring(0,10) + " " + timeoftag.substring(11,19)
-            console.log("date: " + date)
             let jsDate = new Date(date)
             let taggedPeriod = (Date.now() - jsDate.getTime())/1000 - 60*60*2
             tagTimeInSeconds = player.tagtime + Math.floor(taggedPeriod)

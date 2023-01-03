@@ -35,7 +35,7 @@ function RegisterForm() {
             if(!response){
                 setErr('No Server Response')
             }else if(response.status === 200){
-                navigate("/login")
+                navigate("/")
             }else if(response.status === 400){
                 setErr('Email allready exists')
             }else {
