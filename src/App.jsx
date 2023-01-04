@@ -11,17 +11,11 @@ function App() {
   let [user, setUser] = useState({})
   
   useEffect(() => {
-    if(sessionStorage.getItem("user")){
+    if(window.sessionStorage.getItem("user")!==null){
       setUser(JSON.parse(sessionStorage.user));
       console.log("sessionStorage.user 1: " + JSON.stringify(sessionStorage.user))
     }
   }, []);
-
-  useEffect(() => {
-    sessionStorage.setItem("user", JSON.stringify(user));
-    console.log("user: " + JSON.stringify(user))
-    console.log("sessionStorage.user 2: " + JSON.stringify(sessionStorage.user))
-  }, [user]); 
 
   return (
     <Routes>
